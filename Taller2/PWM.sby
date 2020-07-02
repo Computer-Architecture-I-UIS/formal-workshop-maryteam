@@ -1,6 +1,7 @@
 
 [options]
 mode bmc
+mode prove #k-induction
 depth 50
 #expect fail
 
