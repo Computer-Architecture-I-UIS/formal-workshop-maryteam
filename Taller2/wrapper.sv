@@ -26,21 +26,14 @@ always @(posedge clock) begin
 			assert(io_cont);
 		end
 		if (io_cont<= io_duty)begin
-<<<<<<< HEAD
-			assert(io_out);  
-=======
-			assert(io_out);
->>>>>>> 0cfc4af02ebf3e5575d33a4afc37587909428383
+			assert(io_out); 
 		end
 		if (io_cont> io_duty)begin 
 			assert(!io_out);
 		end
-<<<<<<< HEAD
 		if (io_cont<=io_T)begin
 			assert($past(io_cont)+1==io_cont);
 		end
-=======
->>>>>>> 0cfc4af02ebf3e5575d33a4afc37587909428383
 		//if (io_cont>=io_T)assert(!io_out);
 		assert(io_cont<=io_T);
 		//if (reset) assert(!io_out);
