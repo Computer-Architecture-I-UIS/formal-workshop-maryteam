@@ -26,7 +26,7 @@ always @(posedge clock) begin
 			assert(io_cont);
 		end
 		if (io_cont<= io_duty)begin
-			assert(io_out);
+			assert(io_out);  
 		end
 		if (io_cont> io_duty)begin 
 			assert(!io_out);
