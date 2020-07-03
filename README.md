@@ -10,7 +10,7 @@ En la siguiente imagen se encuentra el diagrama de bloques de la verificación f
 
 En el archivo sby puede encontrar los solucionadores utilizados los cuales son ```boolector```, ```z3``` y ```yices```. Además puede encontrar los métodos utilizados para verificación los cuales son ```bmc``` y ```k-induction```.
 
-![Diagrama](https://github.com/Computer-Architecture-I-UIS/formal-workshop-maryteam/blob/master/Diagrama.png)
+
 
 <p align="center">
   <img src="https://github.com/Computer-Architecture-I-UIS/formal-workshop-maryteam/blob/master/Diagrama.png" />
