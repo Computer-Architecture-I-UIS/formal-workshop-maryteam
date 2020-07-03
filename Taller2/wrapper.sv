@@ -14,9 +14,8 @@ reg init=1;
 always @(posedge clock) begin
 	if (init) begin
 		assume(reset);
-		//assume(io_inc);
-		//assume(io_duty<=255);
-		//assume(io_T<=255);
+		assume(io_duty<=255);
+		assume(io_T<=255);
 	end
 	if (!reset) begin
 		if ($past(io_inc))begin
@@ -34,9 +33,7 @@ always @(posedge clock) begin
 		if (io_cont<=io_T)begin
 			assert($past(io_cont)+1==io_cont);
 		end
-		//if (io_cont>=io_T)assert(!io_out);
 		assert(io_cont<=io_T);
-		//if (reset) assert(!io_out);
 		assert(io_duty<=io_T);	
 	end 
 	if(!io_inc)assert(!io_out);
