@@ -8,9 +8,6 @@ DIAGRAMA DE BLOQUES
 
 En la siguiente imagen se encuentra el diagrama de bloques de la verificación formal que estamos realizando. Hay tres bloques principales. El bloque PWM es el archivo en verilog que generamos desde nuestro archivo principal en scala. El bloque wrapper representa el archivo en lenguaje systemverilog donde tenemos nuestras asunciones y aserciones. El bloque solucionador formal representa nuestros solucionadores que utilizamos para la verificación y el modo de chequeo. 
 
-En el archivo sby puede encontrar los solucionadores utilizados los cuales son ```boolector```, ```z3``` y ```yices```. Además puede encontrar los métodos utilizados para verificación los cuales son ```bmc``` y ```k-induction```.
-
-
 
 <p align="center">
   <img src="https://github.com/Computer-Architecture-I-UIS/formal-workshop-maryteam/blob/master/Diagrama.png" />
@@ -21,9 +18,9 @@ DESCRIPCION
 
 Primero se modificó el archivo scala y verilog, para adicionar una salida más al archivo del PWM usado en el primer taller, esta salida corresponde al contador antes era una variable interna del código. La  variable contador es importante en las comparaciones que se realiza en la verificación.
 
-Al momento que se realizo el archivo de SimbyYosis “.sby” se indicó que se emplea la verificación con los tres solucionadores vistos en clases los cuales son Z3 ,boolector  y Yices, también se utilizó el método de k-indution , se usó un paso de 50 ya que es un valor óptimo de verificación al ser un proceso de pocas condiciones
+Al momento que se realizo el archivo de SimbyYosis “.sby” se indicó que se emplea la verificación con los tres solucionadores vistos en clases los cuales son ```z3``` ,```boolector```  y ```yices```, también se utilizaron los metodos de verificacion  ```bmc``` y ```k-induction```. Se usó un paso de 50 ya que es un valor óptimo de verificación al ser un proceso de pocas condiciones.
 
-En el archivo wrapper.sv se determinaron las reglas formales las cuales son las que se van a verificar el óptimo funcionamiento del proceso de generar una señal de PWM , estas 
+En el archivo wrapper.sv se determinaron las reglas formales las cuales son las que se van a verificar el óptimo funcionamiento del proceso de generar una señal de PWM , estas son:
 
 
 
