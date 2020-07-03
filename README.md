@@ -122,4 +122,4 @@ Verificación de que si la variable del enable es cero la salida del PWM está t
 
 RESULTADOS
 ----------
-Dando como resultado que el solucionador ```z3 ```paso para la verificación de ```bmc``` y para la verificación de ```k-induction``` siendo los solucionadores ```Yices y Boolector```
+Dando como resultado que el solucionador ```z3 ``` pasó para la verificación de ```bmc``` y para la verificación de ```k-induction``` siendo los solucionadores ```yices``` y ```boolector```.
