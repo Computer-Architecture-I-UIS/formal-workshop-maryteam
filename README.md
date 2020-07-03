@@ -36,7 +36,8 @@ a no superar el valor de 2 a la n_bits -1.
 2. ```if (!reset) begin```
 
 Esta condición hace que todas las verificaciones del proceso se hagan cuando el reset es 0 ya que cuando se hace 1 y vuelve a las variables de salida a su valor inicial de 0.
--a. ```if ($past(io_inc))begin
+
+- a. ```if ($past(io_inc))begin
       assert(!io_cont);
   end```
   
