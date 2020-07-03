@@ -17,7 +17,7 @@ always @(posedge clock) begin
 		assume(io_duty<=255);
 		assume(io_T<=255);
 	end
-	if (!reset) begin
+	if (!reset) begin 
 		if ($past(io_inc))begin
 			assert(!io_cont);
 		end
