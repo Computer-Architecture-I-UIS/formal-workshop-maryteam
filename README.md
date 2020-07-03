@@ -1,10 +1,20 @@
- Mary Zuleika Jimenez Diaz 2150952-Camilo Santamaria 2145548 - Alejandro Navarro Luna 2160472/ MARYTEAM 
+ Mary Zuleika Jimenez Diaz 2150952 - Camilo Santamaria 2145548 - Alejandro Navarro Luna 2160472/ MARYTEAM 
 ================
 VERIFICACION PWM
 ================
 
 DIAGRAMA DE BLOQUES
 -------------------
+
+En la siguiente imagen se encuentra el diagrama de bloques de la verificación formal que estamos realizando. Hay tres bloques principales. El bloque PWM es el archivo en verilog que generamos desde nuestro archivo principal en scala. El bloque wrapper representa el archivo en lenguaje systemverilog donde tenemos nuestras asunciones y aserciones. El bloque solucionador formal representa nuestros solucionadores que utilizamos para la verificación y el modo de chequeo. 
+
+En el archivo sby puede encontrar los solucionadores utilizados los cuales son ```boolector```, ```z3``` y ```yices```. Además puede encontrar los métodos utilizados para verificación los cuales son ```bmc``` y ```k-induction```.
+
+
+
+<p align="center">
+  <img src="https://github.com/Computer-Architecture-I-UIS/formal-workshop-maryteam/blob/master/Diagrama.png" />
+</p>
 
 DESCRIPCION
 -----------
