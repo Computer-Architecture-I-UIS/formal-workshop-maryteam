@@ -41,7 +41,7 @@ a no superar el valor de 2 a la n_bits -1.
 
 Esta condición hace que todas las verificaciones del proceso se hagan cuando el reset es 0 ya que cuando se hace 1 y vuelve a las variables de salida a su valor inicial de 0.
 
-- a. ```if ($past(io_inc))begin
+- a. ```if ($past(io_inc))begin```
 
       ```assert(!io_cont);```
       
@@ -49,7 +49,7 @@ Esta condición hace que todas las verificaciones del proceso se hagan cuando el
   
   En el primer ciclo de la variable “io_inc”, la salida “io_cont” que es el contador debe estar en cero.
 
-- b. ```if ($past(io_inc,2))begin
+- b. ```if ($past(io_inc,2))begin```
 
       ```assert(io_cont);```
       
@@ -57,14 +57,15 @@ Esta condición hace que todas las verificaciones del proceso se hagan cuando el
    
 Después de dos ciclos anteriores de estar inicializado la variable “io_inc”, la salida “io_cont” que equivale al contador debe estar en 1.
 
-- c. ```if (io_cont<= io_duty)begin
+- c. ```if (io_cont<= io_duty)begin```
 
        ```assert(io_out);```
        
    ```end```
    
 Siempre que la salida io_cont sea menor al ciclo Útil “io_duty”, la salida “io_out”  que es la señal PWM debe estar en 1.
-- d. ```if (io_cont> io_duty)begin
+
+- d. ```if (io_cont> io_duty)begin```
 
         ```assert(!io_out);```
         
@@ -72,7 +73,7 @@ Siempre que la salida io_cont sea menor al ciclo Útil “io_duty”, la salida 
    
 Cuando la salida del contador “io_cont” es mayor a la variable de entrada del ciclo útil io_duty, la salida “io_out” que equivale a las señal del PWM deberá estar en valor lógico de 0.
 
-- e. ```if (io_cont<=io_T)begin
+- e. ```if (io_cont<=io_T)begin```
 
        ```assert($past(io_cont)+1==io_cont);```
        
