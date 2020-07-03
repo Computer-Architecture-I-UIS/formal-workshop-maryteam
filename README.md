@@ -19,11 +19,13 @@ En el archivo wrapper.sv se determinaron las reglas formales las cuales son las 
 
 VERIFICACION FORMAL
 -------------------
-1.  // if (init) begin
+1.  ```if (init) begin```
+
 Valores de entrada.
-          //assume(reset);
+          ```assume(reset);```
+          
 El reset en 1 inicializa los valores de todas las variables del proceso.
-        //assume(io_duty<=255);
+        assume(io_duty<=255);
 Como se utiliza un contador de 8 bit los valores de el ciclo útil no puede ser mayor
 a este valor.
         //assume(io_T<=255);
