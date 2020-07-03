@@ -108,6 +108,6 @@ Se verifica que cuando se inicialice el proceso la variable del ciclo útil “i
  ```
 3.
 ```
-          if(!io_inc) assert(!io_out);
+if(!io_inc) assert(!io_out);
 ```
 Verificación de que si la variable del enable es cero la salida del PWM está también en cero ya que no ha empezado la condición del reset no influye en la verificación pero se asume en 1.
