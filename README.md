@@ -19,26 +19,36 @@ En el archivo wrapper.sv se determinaron las reglas formales las cuales son las 
 
 VERIFICACION FORMAL
 -------------------
-1.  ```if (init) begin```
-
+1. 
+```
+if (init) begin
+```
 Valores de entrada.
 
-          ```assume(reset);```
-          
-   El reset en 1 inicializa los valores de todas las variables del proceso.
-        ```assume(io_duty<=255);```
-        
-        Como se utiliza un contador de 8 bit los valores de el ciclo útil no puede ser mayor
+```
+          assume(reset);
+```
+El reset en 1 inicializa los valores de todas las variables del proceso.
+       
+```
+          assume(io_duty<=255);
+```
+Como se utiliza un contador de 8 bit los valores de el ciclo útil no puede ser mayor
 a este valor.
 
-        ```assume(io_T<=255);```
-        
-   De igual forma al utilizar un contador de 8 bit obliga  a la variable del periodo “io_T”
+ ```
+           assume(io_T<=255);
+ ```
+De igual forma al utilizar un contador de 8 bit obliga  a la variable del periodo “io_T”
 a no superar el valor de 2 a la n_bits -1.
-     ```end```
+```
+end
+```
      
-2. ```if (!reset) begin```
-
+2. 
+```
+if (!reset) begin
+```
 Esta condición hace que todas las verificaciones del proceso se hagan cuando el reset es 0 ya que cuando se hace 1 y vuelve a las variables de salida a su valor inicial de 0.
 
 - a. 
@@ -47,8 +57,7 @@ Esta condición hace que todas las verificaciones del proceso se hagan cuando el
                     assert(!io_cont);
           end
 ```
-  
-  En el primer ciclo de la variable “io_inc”, la salida “io_cont” que es el contador debe estar en cero.
+En el primer ciclo de la variable “io_inc”, la salida “io_cont” que es el contador debe estar en cero.
 
 - b. 
 ```
@@ -56,7 +65,6 @@ Esta condición hace que todas las verificaciones del proceso se hagan cuando el
                     assert(io_cont);
           end
 ```
-   
 Después de dos ciclos anteriores de estar inicializado la variable “io_inc”, la salida “io_cont” que equivale al contador debe estar en 1.
 
 - c. 
@@ -64,8 +72,7 @@ Después de dos ciclos anteriores de estar inicializado la variable “io_inc”
           if (io_cont<= io_duty)begin
                     assert(io_out);
                  end
-```
-   
+```  
 Siempre que la salida io_cont sea menor al ciclo Útil “io_duty”, la salida “io_out”  que es la señal PWM debe estar en 1.
 
 - d. 
@@ -73,8 +80,7 @@ Siempre que la salida io_cont sea menor al ciclo Útil “io_duty”, la salida 
           if (io_cont> io_duty)begin
                     assert(!io_out);
           end
-```
-   
+``` 
 Cuando la salida del contador “io_cont” es mayor a la variable de entrada del ciclo útil io_duty, la salida “io_out” que equivale a las señal del PWM deberá estar en valor lógico de 0.
 
 - e. 
@@ -82,19 +88,26 @@ Cuando la salida del contador “io_cont” es mayor a la variable de entrada de
           if (io_cont<=io_T)begin
                     assert($past(io_cont)+1==io_cont);
           end
-```
-   
+``` 
 En este paso se verifica si la señal del contador “io_cont” es menor a la señal de entrada del Periodo “io_T”, si es afirmativa el valor del contador se incrementará, verifica si el contador está contando.
 
-- f. ```assert(io_cont<=io_T);```
-
+- f. 
+```
+          assert(io_cont<=io_T);
+```
 Se verifica que la señal “io_cont” siempre sea igual o menor al periodo “io_T”, ya que el contador no puede ser mayor al periodo de la señal.
 
-- g.  ```assert(io_duty<=io_T); ``` 
-
+- g.  
+```
+          assert(io_duty<=io_T);
+``` 
 Se verifica que cuando se inicialice el proceso la variable del ciclo útil “io_duty” sea menor al periodo io_T ya que el ciclo útil es una variable que es mayor que cero y menor al periodo. 
 
- ```end```
-3.```if(!io_inc) assert(!io_out);```
-
+ ```
+ end
+ ```
+3.
+```
+          if(!io_inc) assert(!io_out);
+```
 Verificación de que si la variable del enable es cero la salida del PWM está también en cero ya que no ha empezado la condición del reset no influye en la verificación pero se asume en 1.
