@@ -6,6 +6,9 @@ VERIFICACION PWM
 DIAGRAMA DE BLOQUES
 -------------------
 
+
+![Diagrama](https://github.com/Computer-Architecture-I-UIS/formal-workshop-maryteam/blob/master/Diagrama.png)
+
 DESCRIPCION
 -----------
 
