@@ -118,3 +118,6 @@ Se verifica que cuando se inicialice el proceso la variable del ciclo útil “i
 if(!io_inc) assert(!io_out);
 ```
 Verificación de que si la variable del enable es cero la salida del PWM está también en cero ya que no ha empezado la condición del reset no influye en la verificación pero se asume en 1.
+RESULTADOS
+----------
+Dando como resultado que el solucionador ```z3 ```paso para la verificación de ```bmc``` y para la verificación de ```k-induction``` siendo los solucionadores ```Yices y Boolector``````
